@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript">
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();       
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+            setTimeout(startTime, 500);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+    <title>Guida: Cos'è e come si crea una macchina virtuale (VM)</title>
+        <style type="text/css">
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		p { margin-bottom: 0.25cm; line-height: 115%; background: transparent }
+		pre { background: transparent }
+		pre.western { font-family: "Courier New", monospace; font-size: 10pt }
+		pre.cjk { font-family: "NSimSun", monospace; font-size: 10pt }
+		pre.ctl { font-family: "Courier New", monospace; font-size: 10pt }
+	</style>
+<style type="text/css">
+    a:visited {
+        color: blue;
+    }
+</style>
+<style type="text/css">
+        ol {
+            counter-reset: item;
+        }
+        li {
+            display: block;
+        }
+        li:before {
+            content: counter(item) ". ";
+            counter-increment: item;
+            color: red; /* Cambia il colore qui */
+        }
+    </style>
+    <style>
+        button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+
+    </head>
+    <body onload="startTime()">
+        <div id="txt"></div>
+        <hr>
+        <h1>Accessibilità</h1>
+        <br>
+        <button onclick="readPage()">🗣️ Leggi la pagina</button>
+
+<script>
+function readPage() {
+  const text = document.body.innerText; // raccoglie tutto il testo visibile
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "it-IT"; // imposta lingua italiana
+  speechSynthesis.speak(utterance);
+}
+</script>
+<button onclick="stopReading()">🛑 Interrompi</button>
+<hr>
+<script>
+  let utterance;
+
+  function readPage() {
+    const text = document.body.innerText;
+    utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "it-IT";
+    utterance.rate = 1;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+    speechSynthesis.speak(utterance);
+  }
+
+  function stopReading() {
+    speechSynthesis.cancel(); // Ferma immediatamente la lettura
+  }
+</script>
+
+      
+      <h1>Guida per fare una macchina virtuale</h1>
+        <h2> Guida E cos'è una macchina virtuale (vm)</h2>
+        cos'è In pratica la macchina virtuale In pratica È un PC virtuale dentro un computer In pratica l'acronimo è <u>VM (Virtual Machine)</u>.
+        <p> abbiamo capito che cos'è la macchina virtuale Ma come si crea  serve Uno speciale software chiamato <u>software di virtualizzazione</u> Il software di virtualizzazione Faccio un elenco dei loro nomi </p>.
+        <hr>
+         <b>Elenco di software Di verturizzazione principali </b>
+         <ol>
+            <li> VirtualBox: Open source, gratuito, Disponibile su tutti i sistemi.</li>
+            <li>VMware: Proprietario , Gratuito solo per uso Personale E uso perfezionale a pagamento, Disponibile su tutti sistemi.</li>
+            <li>Hyper-V: Proprietario , Gratuito , Disponibile solo su Windows pro/Enterprise.</li>
+            <li>KVM: Open source , Gratuito , Non adatto ai principianti.</li>
+            <li>UTM: Proprietario , Gratuito per Mac .</li>
+            <li>Parallels Desktop: Proprietario , Non è gratuito , Piattaforma principale Mac.</li>
+         </ol>
+         <hr>
+         <b>Video tutorial</b>
+         Ora vediamo con Video tutorial ecco il link sotto elenco ordinato
+         <ol>
+           <li><a href="https://www.youtube.com/watch?v=ZdeGbnRkT_c&t=33s"> Come CREARE una MACCHINA VIRTUALE su VIRTUALBOX (Windows, Ubuntu) di nfire.</a></li>
+           <li><a href="https://www.youtube.com/watch?v=p-1zaFC8qm8"> 156 Creare una macchina virtuale con VIRTUALBOX Corso di computer Daniele Castelletti AssMaggiolina di AssMaggiolina.</a></li>
+           <li><a href="https://www.youtube.com/watch?v=hecjOzPvr7g"> Macchina virtuale: cos'è? Te lo spiego semplice di cose di computer.</a></li>
+           <li><a href="https://www.youtube.com/watch?v=jCE1XU-zBiE&t=364s"> 157 Come installare Linux su Macchina Virtuale | Corso di computer Daniele Castelletti AssMaggiolina di AssMaggiolina.</a></li>
+           <li><a href="https://www.youtube.com/watch?v=pW1uhjlWdA8"> Cosa sono e come si usano le MACCHINE VIRTUALI? di YoungTech.</a></li>
+           <li><a href="https://www.youtube.com/watch?v=VnM1gP2o8rU&t=443s"> Uno scontro tra titani! - VMware VS VirtualBox (Closed VS OpenSource #3) di YoungTech.</a></li>
+         </ol>
+         Questi sono tutti i video tutorial Ho trovato riguardante le macchine virtuali (VM).
+         <br>
+     <img src="https://www.virtualbox.org/manual/images/virtualbox-main.png" width="400" height="400"> 
+     <hr>
+    <b>Passaggi per creare una macchina virtuale con VirtualBox</b>
+<ol>
+  <li>Scarica e installa VirtualBox dal sito ufficiale: <a href="https://www.virtualbox.org/">virtualbox.org</a></li>
+  <li>Avvia VirtualBox e clicca su <b>"Nuova"</b> per creare una nuova macchina virtuale.</li>
+  <li>Assegna un nome alla VM e seleziona il tipo di sistema operativo (es. Windows, Linux).</li>
+  <li>Configura la quantità di memoria RAM da dedicare alla VM (es. 2048 MB per sistemi leggeri).</li>
+  <li>Crea un disco fisso virtuale (VDI) e scegli la dimensione (es. 20 GB).</li>
+  <li>Seleziona il file ISO del sistema operativo che vuoi installare (es. Ubuntu, Windows 10).</li>
+  <li>Avvia la macchina virtuale e segui la procedura di installazione del sistema operativo.</li>
+  <li>Una volta installato, puoi usare la VM come un normale computer, all’interno del tuo sistema.</li>
+</ol>
+<hr>
+<b>Passaggi per creare una macchina virtuale con </b>
+<ol>
+  <li>Scarica e installa VMware Workstation Player (gratuito per uso personale) dal sito ufficiale: <a href="https://www.vmware.com/products/workstation-player.html">vmware.com</a></li>
+  <li>Avvia VMware e clicca su <b>"Create a New Virtual Machine"</b>.</li>
+  <li>Seleziona <b>"Installer disc image file (ISO)"</b> e carica il file ISO del sistema operativo che vuoi installare.</li>
+  <li>Inserisci il nome della macchina virtuale e scegli dove salvarla.</li>
+  <li>Configura le risorse: quantità di RAM, numero di processori, spazio su disco.</li>
+  <li>Completa la configurazione e clicca su <b>"Finish"</b>.</li>
+  <li>Avvia la macchina virtuale e segui la procedura di installazione del sistema operativo.</li>
+  <li>Una volta installato, puoi usare la VM come un normale computer virtuale.</li>
+</ol>
+<hr>
+Quando imparate a fare macchine virtuali diventa molto facile capire <u>come si fa</u>, Sapete il software che dovete usare i tutorial Quindi basta solo metterli in <u>pratica</u>
+<hr>
+<b>🛠️ Come installare VirtualBox (Windows)</b>
+<p>Ecco i passaggi per installare VirtualBox, partendo dal presupposto che hai già scaricato il file di installazione:</p>
+<ol>
+  <li>Fai doppio clic sul file <b>.exe</b> per avviare l’installazione.</li>
+  <li>Si apre la finestra di installazione guidata: clicca su <b>" Avanti"</b> per proseguire.</li>
+  <li>Lascia attive le opzioni predefinite (USB Support, Networking, ecc.) oppure personalizza se necessario.</li>
+  <li>Attenzione: durante l’installazione, la connessione di rete potrebbe essere temporaneamente interrotta. È normale.</li>
+  <li>Clicca su <b>"Installa"</b> e conferma eventuali richieste di autorizzazione da Windows.</li>
+  <li>Attendi qualche minuto: al termine, clicca su <b>"Fine"</b> per completare.</li>
+  <li>Ora puoi avviare VirtualBox dal menu Start o dal collegamento sul desktop.</li>
+</ol>
+<p>Una volta avviato, sei pronto per creare la tua prima macchina virtuale!</p>
+<hr>
+Comunque per installare VirtualBox dovete installare il pacchetto <u>Microsoft Visual C++ Redistributable (VC_redist)</u> Lo scarichi nel sito ufficiale o scarichi tramite questi link OK prima di scaricare o installarlo dovete devi capire quale architettura è il tuo processore 32 bit, 64 bit. ARM Ma sai Windows 11 è quasi sicuramente che usi o 64 bit O arm Ecco i link dove installarlo Dove scaricarlo .
+<ol>
+    <li> Sai 32 bit Scarica questo "<a href="https://aka.ms/vs/17/release/vc_redist.x86.exe"> Per 32 bit</a>"</li>
+    <li> Se invece hai un 64 bit quasi sicuramente ce l'hai Perché un PC moderno ce l'ha Scarica questo "<a href="https://aka.ms/vs/17/release/vc_redist.x64.exe"> Per 64 bit</a>" </li>
+    <li> Se hai ARM Che lentamente si sta diffondendo per scaricarlo per ARM scarica questo "<a href="https://aka.ms/vs/17/release/vc_redist.arm64.exe"> pre arm64</a>"</li>
+</ol>
+<img src="https://tpucdn.com/download/images/123_icon.png">
+<hr>
+<a href="https://download.virtualbox.org/virtualbox/7.2.0/VirtualBox-7.2.0-170228-Win.exe" download>
+  <button>⬇️ ORA Scarica VirtualBox</button>
+</a>
+
+ </body>
+</html>
