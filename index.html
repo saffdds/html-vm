@@ -4,104 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="google-site-verification" content="4BZJeU6AdBCHfG2IMn2yfc-FY0unwxEeRudDK5toVeU" />
-<script type="text/javascript">
-        function startTime() {
-            var today = new Date();
-            var h = today.getHours();
-            var m = today.getMinutes();       
-            var s = today.getSeconds();
-            m = checkTime(m);
-            s = checkTime(s);
-            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
-            setTimeout(startTime, 500);
-        }
-
-        function checkTime(i) {
-            if (i < 10) {
-                i = "0" + i;
-            }
-            return i;
-        }
-    </script>
+  <script type="text/javascript" src="script.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
     <title>Guida: Cos'è e come si crea una macchina virtuale (VM)</title>
-        <style type="text/css">
-		@page { size: 21cm 29.7cm; margin: 2cm }
-		p { margin-bottom: 0.25cm; line-height: 115%; background: transparent }
-		pre { background: transparent }
-		pre.western { font-family: "Courier New", monospace; font-size: 10pt }
-		pre.cjk { font-family: "NSimSun", monospace; font-size: 10pt }
-		pre.ctl { font-family: "Courier New", monospace; font-size: 10pt }
-	</style>
-<style type="text/css">
-    a:visited {
-        color: blue;
-    }
-</style>
-<style type="text/css">
-        ol {
-            counter-reset: item;
-        }
-        li {
-            display: block;
-        }
-        li:before {
-            content: counter(item) ". ";
-            counter-increment: item;
-            color: red; /* Cambia il colore qui */
-        }
-    </style>
-    <style>
-        button {
-            background-color: blue;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-    </style>
-    <style>
-		p {
-			color:green;
-		}
-	</style>
-    </head>
+</head>
     <body onload="startTime()">
         <div id="txt"></div>
         <hr>
         <h1>Accessibilità</h1>
         <br>
         <button onclick="readPage()">🗣️ Leggi la pagina</button>
-
-<script>
-function readPage() {
-  const text = document.body.innerText; // raccoglie tutto il testo visibile
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "it-IT"; // imposta lingua italiana
-  speechSynthesis.speak(utterance);
-}
-</script>
 <button onclick="stopReading()">🛑 Interrompi</button>
 <hr>
-<script>
-  let utterance;
-
-  function readPage() {
-    const text = document.body.innerText;
-    utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "it-IT";
-    utterance.rate = 1;
-    utterance.pitch = 1;
-    utterance.volume = 1;
-    speechSynthesis.speak(utterance);
-  }
-
-  function stopReading() {
-    speechSynthesis.cancel(); // Ferma immediatamente la lettura
-  }
-</script>
-
-      
-      <h1>Guida per fare una macchina virtuale</h1>
+<h1>Guida per fare una macchina virtuale</h1>
         <h2> Guida E cos'è una macchina virtuale (vm)</h2>
         cos'è In pratica la macchina virtuale In pratica È un PC virtuale dentro un computer In pratica l'acronimo è <u>VM (Virtual Machine)</u>.
         <p> abbiamo capito che cos'è la macchina virtuale Ma come si crea  serve Uno speciale software chiamato <u>software di virtualizzazione</u> Il software di virtualizzazione Faccio un elenco dei loro nomi.</p>
@@ -183,12 +98,3 @@ Comunque per installare VirtualBox dovete installare il pacchetto <u style="colo
 
  </body>
 </html>
-
-
-
-
-
-
-
-
-
